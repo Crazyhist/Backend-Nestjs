@@ -17,7 +17,7 @@ import { User } from "./users/users.model";
     // Тут импорт орм и всякого другого, в данном случае Sequelize
     imports: [
         ConfigModule.forRoot({
-            envFilePath: `.${process.env.NODE_ENV}.env`
+            envFilePath: `.${process.env.NODE_ENV}.env` // дев и продакт порт в env
         }),
         SequelizeModule.forRoot({
           dialect: 'postgres',
@@ -28,7 +28,7 @@ import { User } from "./users/users.model";
           database: process.env.POSTGRES_DB,
           autoLoadModels: true,
           synchronize: true,
-          models: [User],
+          models: [User], // добавление сущности 
         }),
         UsersModule,
       ],
